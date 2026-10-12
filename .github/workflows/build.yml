@@ -19,3 +19,13 @@ jobs:
         with:
           name: MediaGrab-ipa
           path: MediaGrab.ipa
+      - run: |
+          xcodebuild -project MediaGrab.xcodeproj -scheme MediaGrab \
+            -configuration Debug -sdk iphonesimulator -derivedDataPath sim \
+            CODE_SIGNING_ALLOWED=NO build
+          cd sim/Build/Products/Debug-iphonesimulator
+          zip -r $GITHUB_WORKSPACE/MediaGrab-sim.zip MediaGrab.app
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MediaGrab-sim
+          path: MediaGrab-sim.zip
