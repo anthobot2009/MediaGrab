@@ -1,0 +1,21 @@
+name: MediaGrab
+options:
+  bundleIdPrefix: com.mediagrab
+targets:
+  MediaGrab:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources: [Sources]
+    info:
+      path: Sources/Info.plist
+      properties:
+        CFBundleDisplayName: MediaGrab
+        UILaunchScreen: {}
+        UIBackgroundModes: [audio]
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.mediagrab.app
+      SWIFT_VERSION: "5.0"
+      CODE_SIGNING_ALLOWED: "NO"
